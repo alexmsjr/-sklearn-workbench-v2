@@ -1,0 +1,273 @@
+/* ==========================================================================
+   myWeka - estilo extraido do mock
+
+   Todas as cores foram medidas pixel a pixel no PNG do desenho, nao
+   estimadas. Mexer so neste arquivo muda o visual sem tocar em main.py.
+
+   Paleta:
+     #0F0F0F  fundo da janela e da aba ativa do topo
+     #151515  aba inativa do topo
+     #252525  barra de titulo, faixa das abas da saida, cabecalhos
+     #1A1A1A  interior das caixas e area de conteudo
+     #262626  caixas em destaque (os botoes de executar)
+     #555555  todas as bordas e divisorias
+   ========================================================================== */
+
+/* ---- janela -------------------------------------------------------------- */
+#raiz {
+    background-color: #0F0F0F;
+    border: 1px solid #555555;
+    border-radius: 11px;
+}
+
+#corpo, #painel, #barraAbas {
+    background-color: transparent;
+    border: none;
+}
+
+#barraTitulo {
+    background-color: #252525;
+    border: none;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+}
+
+/* ---- abas do topo (Classificacao / Regressao) ---------------------------
+   A ativa usa a cor do fundo da janela para se fundir com o conteudo.    */
+#aba {
+    background-color: #151515;
+    border: none;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #8A8B8D;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 15px;
+    /* So um fio da barra de titulo aparece acima da aba; o resto dela
+       desce ate o fim da barra, sem sobra embaixo. */
+    margin-top: 2px;
+    min-width: 140px;
+    padding: 0px 10px;
+}
+#aba:hover   { color: #CFD0D2; }
+#aba:checked { background-color: #0F0F0F; color: #FFFFFF; }
+
+/* ---- abas da caixa de saida (Dados / Resultados) ------------------------
+   Aqui a aba ativa e um retangulo reto da cor do conteudo, que vai do
+   topo da caixa ate dentro dela: e o que funde as duas numa peca so.
+   A inativa nao tem fundo proprio, e so texto sobre a faixa.          */
+#barraAbasSaida { background-color: #252525; border: none; }
+
+#abaSaida {
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    color: #8A8B8D;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 14px;
+    min-width: 86px;
+    padding: 0px 14px;
+}
+#abaSaida:hover   { color: #CFD0D2; }
+#abaSaida:checked { background-color: #1A1A1A; color: #FFFFFF; }
+
+/* ---- caixas de controle -------------------------------------------------
+   A caixa tem o fundo na cor da borda e 1px de recuo; as celulas opacas
+   por cima deixam aparecer so a moldura e as divisorias internas.        */
+#caixa, #caixaForte, #caixaHistorico, #areaSaida {
+    background-color: #555555;
+    border: none;
+    border-radius: 0px;
+}
+
+#celulaIcone, #celulaRotulo, #celulaRotuloCentro {
+    background-color: #1A1A1A;
+    border: none;
+    color: #E8E8E8;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 14px;
+}
+#celulaRotulo       { padding-left: 13px; }
+#celulaRotuloCentro { qproperty-alignment: AlignCenter; }
+
+#celulaRotuloCentro { background-color: #262626; }
+
+/* O realce do mouse vem de uma propriedade posta pela Caixa: o Qt nao
+   propaga o :hover do pai para os filhos dentro do seletor.           */
+#celulaIcone[sobOMouse="true"],
+#celulaRotulo[sobOMouse="true"]       { background-color: #202123; }
+#celulaRotuloCentro[sobOMouse="true"] { background-color: #303134; }
+
+/* O estado desabilitado desce do pai para os filhos sozinho, entao o
+   seletor fica na propria celula.                                     */
+#celulaIcone:disabled,
+#celulaRotulo:disabled,
+#celulaRotuloCentro:disabled { color: #5E5F61; }
+
+/* combo "Selecionar Metodo", dentro da caixa */
+QComboBox#controle {
+    background-color: #1A1A1A;
+    border: none;
+    border-radius: 0px;
+    color: #E8E8E8;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 14px;
+    padding-left: 13px;
+    padding-right: 28px;
+}
+QComboBox#controle:disabled { color: #5E5F61; }
+QComboBox#controle::drop-down  { border: none; width: 0px; }
+QComboBox#controle::down-arrow { image: none; width: 0px; }
+
+QComboBox#controle QAbstractItemView {
+    background-color: #1A1A1A;
+    border: 1px solid #555555;
+    color: #E8E8E8;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 14px;
+    outline: none;
+    padding: 4px;
+    selection-background-color: #333436;
+    selection-color: #FFFFFF;
+}
+
+/* campo do %Teste */
+#valorTeste {
+    background-color: #1A1A1A;
+    border: none;
+    color: #E8E8E8;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 14px;
+    padding-left: 11px;
+    selection-background-color: #3A3B3D;
+}
+#valorTeste:disabled { color: #5E5F61; }
+
+/* ---- card do arquivo carregado ------------------------------------------ */
+#cardArquivo {
+    background-color: #1A1A1A;
+    border: 1px solid #555555;
+    border-radius: 0px;
+}
+
+#nomeArquivo {
+    color: #FFFFFF;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 13px;
+    background: transparent;
+}
+
+#infoArquivo {
+    color: #9A9B9D;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 12px;
+    background: transparent;
+}
+
+#botaoFecharCard {
+    background: transparent;
+    border: none;
+}
+#botaoFecharCard:hover { background-color: #2E2F31; }
+
+/* ---- historico ----------------------------------------------------------- */
+#tituloHistorico {
+    background-color: #252525;
+    color: #FFFFFF;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 14px;
+    padding-left: 13px;
+}
+
+#historico {
+    background-color: #1A1A1A;
+    border: none;
+    color: #C8C9CB;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 12px;
+    outline: none;
+    padding: 4px;
+}
+#historico::item          { padding: 4px 9px; }
+#historico::item:hover    { background-color: #242527; }
+#historico::item:selected { background-color: #555555; color: #FFFFFF; }
+
+/* ---- card de identificacao no rodape ------------------------------------ */
+#cardInfo {
+    background-color: #252525;
+    border: 1px solid #555555;
+    border-radius: 0px;
+}
+
+#tituloInfo {
+    color: #FFFFFF;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 13px;
+    background: transparent;
+}
+
+#textoInfo {
+    color: #9A9B9D;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 12px;
+    background: transparent;
+}
+
+/* ---- botoes da janela ---------------------------------------------------- */
+#botaoJanela, #botaoFechar {
+    background: transparent;
+    border: none;
+}
+#botaoJanela:hover { background-color: #333333; }
+#botaoFechar:hover { background-color: #C42B1C; }
+
+/* ---- area de saida ------------------------------------------------------- */
+#pilhaSaida { background-color: #1A1A1A; border: none; }
+
+/* Monoespacada de proposito: a matriz de confusao do numpy e o alinhamento
+   por pontos do metricas() so ficam retos em fonte de largura fixa. */
+#saida {
+    background-color: #1A1A1A;
+    border: none;
+    color: #E6E6E6;
+    font-family: "Consolas", "Courier New", monospace;
+    font-size: 12px;
+    padding: 12px 16px;
+    selection-background-color: #3A3B3D;
+}
+
+/* ---- tooltip ------------------------------------------------------------- */
+QToolTip {
+    background-color: #252525;
+    border: 1px solid #555555;
+    color: #E6E6E6;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 13px;
+    padding: 9px 11px;
+}
+
+/* ---- barras de rolagem --------------------------------------------------- */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 0px 4px 0px 0px;
+}
+QScrollBar::handle:vertical {
+    background: #3C3C3F;
+    min-height: 30px;
+}
+QScrollBar::handle:vertical:hover { background: #4C4C50; }
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { background: none; }
+
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    margin: 0px 0px 4px 0px;
+}
+QScrollBar::handle:horizontal {
+    background: #3C3C3F;
+    min-width: 30px;
+}
+QScrollBar::handle:horizontal:hover { background: #4C4C50; }
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { width: 0px; }
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal { background: none; }

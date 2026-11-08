@@ -1,0 +1,11 @@
+PySide6==6.11.2
+pandas==3.0.6
+numpy==2.5.3
+
+# Travado na 1.7.2 de proposito, NAO atualize sem testar.
+# O Smart App Control do Windows 11 bloqueia binarios sem reputacao: os
+# .pyd cp314 das versoes 1.8/1.9 sao novos demais e 16 modulos compilados
+# (entre eles sklearn.tree e sklearn.ensemble, que o Random Forest usa)
+# sao recusados com "Uma politica de Controle de Aplicativo bloqueou este
+# arquivo". Os binarios da 1.7.2 ja tem reputacao e passam.
+scikit-learn==1.7.2

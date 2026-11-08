@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# bases de dados ficam fora do repositorio
+dados.txt
+dados_reg.txt

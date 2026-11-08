@@ -1,0 +1,28 @@
+# ##############################################################
+#  PARAMETROS PERSONALIZADOS - REGRESSAO
+#
+#  Este e o arquivo que voce edita. Ele so e usado quando o botao
+#  "Parametros Padrao" esta DESLIGADO na interface.
+#
+#  Os valores abaixo sao os que o professor entregou no ml_reg_sk.py.
+#  Mude a vontade: o arquivo e relido a cada execucao, entao basta
+#  salvar aqui e clicar em Executar de novo.
+# ##############################################################
+
+[MLP]
+hidden_layer_sizes = (150,)
+activation = relu
+solver = lbfgs
+alpha = 0.01
+learning_rate = adaptive
+max_iter = 1000
+random_state = 42
+
+[Random Forest]
+n_estimators = 80
+criterion = squared_error
+max_depth = None
+min_samples_split = 2
+min_samples_leaf = 1
+random_state = 42
+n_jobs = -1
