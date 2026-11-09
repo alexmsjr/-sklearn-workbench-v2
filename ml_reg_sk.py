@@ -39,8 +39,10 @@ def metricas(texto,y_teste,y_pred):
 # LEITURA DO ARQUIVO
 # ==============================================================
 def ler_arquivo(arquivo):
-    df = pd.read_csv(arquivo, header=None)
-    atributos = df.iloc[:, :-1].astype(float).values
+    df = pd.read_csv(arquivo, header=None, quotechar="'", skipinitialspace=True)
+    atributos = df.iloc[:, :-1]
+    atributos = pd.get_dummies(atributos, drop_first=True)
+    atributos = atributos.astype(float).values
     target = df.iloc[:, -1].astype(float).values
     return atributos, target
 

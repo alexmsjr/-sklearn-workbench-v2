@@ -148,6 +148,8 @@ def mlp_treino(x_train, y_train):
 def mlp_teste(x_teste, y_teste, mlp_model): 
     y_pred = mlp_model.predict(x_teste)
     metricas("MLP",y_teste,y_pred)
+    print("PARAMETROS USADOS: ", mlp_model.get_params())
+
 
 # RANDOM FOREST
 def rf_treino(x_train, y_train):
@@ -157,6 +159,8 @@ def rf_treino(x_train, y_train):
 def rf_teste(x_teste, y_teste, rf_model):
     y_pred = rf_model.predict(x_teste)
     metricas("RANDOM FOREST", y_teste, y_pred)
+    print("PARAMETROS USADOS: ", rf_model.get_params())
+
 
 # DECISION TREE
 def dt_treino(x_train, y_train):
@@ -166,29 +170,33 @@ def dt_treino(x_train, y_train):
 def dt_teste(x_teste, y_teste, dt_model):
     y_pred = dt_model.predict(x_teste)
     metricas("DECISION TREE", y_teste, y_pred)
+    print("PARAMETROS USADOS: ", dt_model.get_params())
+
 
 # KNEIGHBORS CLASSIFIER
 def kn_treino(x_train, y_train):
     kn_model = KNeighborsClassifier(**parametros_de("KNeighbors Classifier"))
-    print("PARAMETROS USADOS: ", kn_model.get_params())
     kn_model.fit(x_train, y_train)
     return kn_model
 
 def kn_teste(x_teste,y_teste,kn_model):
     y_pred = kn_model.predict(x_teste)
     metricas("KNEIGHBORS CLASSIFIER", y_teste, y_pred)
+    print("PARAMETROS USADOS: ", kn_model.get_params())
+
 
 # EXTRA TREE CLASSIFIER
 
 def et_treino(x_train, y_train):
     et_model = ExtraTreeClassifier(**parametros_de("Extra Tree Classifier"))
-    print("PARAMETROS USADOS: ", et_model.get_params())
     et_model.fit(x_train, y_train)
     return et_model
 
 def et_teste(x_teste, y_teste, et_model):
     y_pred = et_model.predict(x_teste)
     metricas("EXTRA TREE CLASSIFIER", y_teste, y_pred)
+    print("PARAMETROS USADOS: ", et_model.get_params())
+
 
 
 
